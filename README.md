@@ -11,8 +11,11 @@ for make.fun's [Tiny Chess](https://make.fun/bounty/tiny-chess-01) bounty
 ## How it plays
 
 - Negamax search with alpha-beta pruning, iterative deepening under a fixed
-  node budget (no wall clock, fully deterministic for a given position + seed).
-- Quiescence search on captures, MVV-LVA move ordering, transposition table.
+  node budget (no wall clock, no unseeded randomness: every move derives only
+  from the position, the game's moves and the trial seed, so a live trial and
+  its replay agree move for move).
+- Quiescence search on captures, MVV-LVA move ordering, killer moves and a
+  transposition table.
 - Piece-square-table evaluation with tapered opening/endgame values.
 - Packed with the kit's official `compress` (lzma payload + unpacker), so the
   shipped `main.py` is byte-identical to the compressed source.
